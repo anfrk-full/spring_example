@@ -24,12 +24,15 @@ public class TestController {
     @RequestMapping(value="/api/bbs/ctrl/test", method=RequestMethod.GET)
     @ResponseBody   // @Controller를 쓸때 비동기를 하고싶으면 이거를 선언해야된다.
     public BbsResponseDTO test() {
+        /*
         BbsResponseDTO response = BbsResponseDTO.builder()
                                     .id(1)
                                     .title("title")
                                     .content("content")
                                     .build();
         return response;
+        */
+        return null;
     }
     
     

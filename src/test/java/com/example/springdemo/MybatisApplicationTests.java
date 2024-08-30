@@ -11,6 +11,7 @@ import com.example.springdemo.test.mapper.BbsMapper;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Optional;
 
 @SpringBootTest
 public class MybatisApplicationTests {
@@ -42,8 +43,8 @@ public class MybatisApplicationTests {
         System.out.println("debug mapper >>>>>> " + bbsMapper);
         Map<String, Integer> map = new HashMap<>();
         map.put("id" , 2);
-        BbsResponseDTO response = bbsMapper.getRow(map);
-        System.out.println("debug >>> select One " + response);
+        Optional<BbsResponseDTO> response = bbsMapper.getRow(map);
+        System.out.println("debug >>> select One " + response.get());
     }
 
     @Test

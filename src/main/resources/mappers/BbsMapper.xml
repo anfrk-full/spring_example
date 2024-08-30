@@ -42,4 +42,21 @@
         DELETE FROM TB_BBS
         WHERE ID = #{id}
     </delete>
+
+    <insert id="commentSave"
+            parameterType="com.example.springdemo.test.domain.comment.CommentRequestDTO">
+        INSERT INTO TB_COMMENT(CONTENT, BBSID) 
+        VALUES(#{content}, #{bbsid})
+    </insert>
+
+    <!-- commentSelectRow --> 
+
+    <select id="commentSelectRow"
+            parameterType="java.util.HashMap"
+            resultType="com.example.springdemo.test.domain.comment.CommentResponseDTO">
+        SELECT ID, CONTENT, BBSID
+        FROM TB_COMMENT
+        WHERE BBSID = #{id}
+    </select>
+    
 </mapper>

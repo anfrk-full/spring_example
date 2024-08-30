@@ -5,10 +5,14 @@ import org.springframework.stereotype.Service;
 
 import com.example.springdemo.test.domain.BbsRequestDTO;
 import com.example.springdemo.test.domain.BbsResponseDTO;
+import com.example.springdemo.test.domain.comment.CommentRequestDTO;
+import com.example.springdemo.test.domain.comment.CommentResponseDTO;
 import com.example.springdemo.test.mapper.BbsMapper;
 
 import java.util.Map;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class BbsService {
@@ -38,9 +42,19 @@ public class BbsService {
         return lists;
     }
 
-    public BbsResponseDTO list(Map<String, Integer> map) {
-        BbsResponseDTO response = bbsMapper.getRow(map);
-
+    public Optional<BbsResponseDTO> list(Map<String, Integer> map) {
+        System.out.println("debug >>> service list()");
+        Optional<BbsResponseDTO> response = bbsMapper.getRow(map);
+        System.out.println("debug >>> service list result " + response);
+        ArrayList<CommentResponseDTO> list = bbsMapper.commentSelectRow(map);
+        if ( response.isPresent()){
+            response.get().setComment(list);
+        }
         return response;
+    }
+
+    public void commentSave(CommentRequestDTO params) {
+        System.out.println("debug >>> service commentSave() " + bbsMapper);
+        bbsMapper.commentSave(params);
     }
 }
