@@ -15,11 +15,12 @@ Mapper 는 기존 Dao 와 동일한 작업 수행하는 역할
 public interface BbsMapper {
     
     public void saveRow(BbsRequestDTO params);
-    
 
     public List<BbsResponseDTO> selectRow();
 
     public BbsResponseDTO getRow(Map<String, Integer> map);
 
     public void deleteRow(Map<String, Integer> map);
+
+    public void updateRow(BbsRequestDTO params);
 }

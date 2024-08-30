@@ -9,6 +9,14 @@
         VALUES(#{title}, #{content})
     </insert>
 
+    <!-- updateRow -->
+    <update id="updateRow"
+            parameterType="com.example.springdemo.test.domain.BbsRequestDTO">
+        UPDATE TB_BBS 
+        SET TITLE=#{title}, CONTENT=#{content} 
+        WHERE id=#{id}
+    </update>
+
     
 
     <!-- selectRow --> 

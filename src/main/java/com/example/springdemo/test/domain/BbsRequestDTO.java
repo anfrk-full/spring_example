@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class BbsRequestDTO {
+    private int id;
     private String title;
     private String content;
 }
